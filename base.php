@@ -1,6 +1,6 @@
 <?php
 
-class db{
+class DB{
 // 設定屬性:用來建立PDO，與常用變數
     private $dsn="mysql:host=localhost;charset=utf8;dbname=db05";
     // 登入資料庫的帳號與密碼
@@ -95,7 +95,26 @@ public function count(...$arg){
 
 
 // --新增/更新資料--
+    public function save($arg){
+        if(!empty($arg['id'])){
+            // update
+            // update $this->table set xxx=yyy where `id`='xxx'
+            foreach($arg as $key => $value){
+                // 直接這樣寫的話id也會直接被放進去可以新增判斷式避免id被更改
+                if($key!='id'){
+                    $tmp[]=sprintf("`%s`='%s'",$key,$value);
+                }
+            }
+            $sql="update $this->table set ".implode(",",$tmp)." where `id`='".$arg['id']."'";
+        }else{
+            // insert
+            // insert into $this->table (``,``,``) values('','','')
 
+            $sql="insert into $this->table (`".implode("`,`",array_keys($arg))."`) values('".implode("','",$arg)."')";
+        }
+
+        return $this->pdo->exec($sql);
+    }
 
 // --刪除資料--
 
@@ -117,11 +136,11 @@ public function del($arg){
     return $this->pdo->query($sql);
     // query回傳
     // return $this->pdo->exec($sql);
-    // exec回傳被影響資料比數
+    // exec回傳被影響資料筆數
 }
 
 
-// 萬用語法
+// --萬用語法--
 function q($sql){
     return $this->pdo->query($sql)->fetchAll();
 }
@@ -129,6 +148,7 @@ function q($sql){
 }
 
 
+// --頁面導向--
 
 function to($url){
     header("location:".$url);

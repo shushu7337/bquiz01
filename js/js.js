@@ -19,6 +19,7 @@ function lo(x)
 }
 function op(x,y,url)
 {
+	// $(裡面放的是[選擇器])...如果x存在的話執行fadeIn(),如果y存在的話也執行fadeIn(),如果y和url都存在的話就載入url
 	$(x).fadeIn()
 	if(y)
 	$(y).fadeIn()

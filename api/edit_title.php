@@ -5,7 +5,7 @@ include_once '../base.php';
 
 $title=new DB('title');
 
-// 如果在外面時請檢察$_POST會不會被帶入奇怪的資料
+// 如果在外面時請檢查$_POST會不會被帶入奇怪的資料
 foreach($_POST['id'] as $key=>$id){
     // 沒有被刪除的資料才是要更新的資料，所以先判斷del陣列有沒有正在處理的id，如果沒有的話這筆資料就是要做更新，並update回資料庫。
     // 先判斷del有沒有存在(del是空的話直接跳過，並檢查相符的陣列有的話就直接刪除)
@@ -14,7 +14,7 @@ foreach($_POST['id'] as $key=>$id){
        
         $title->del($id);
 
-    }else{
+    }else{ 
 
         // 先把原本資料拿出來
         $row=$title->find($id);

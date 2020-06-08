@@ -22,8 +22,15 @@
         </div>
     </div>
     <div id="main">
-        <a title="" href="?">
-            <div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div>
+        <!-- 叫出title 物件 -->
+        <?php 
+            $title=new DB('title');
+            // 撈出被顯示的資料
+            $ti=$title->find(['sh'=>1]); 
+        ?> 
+        <a title="<?=$ti['text'];?>" href="?">
+            <!-- 修改檔案位置， -->
+            <div class="ti" style="background:url(&#39;img/<?=$ti['img'];?>&#39;); background-size:cover;"></div>
             <!--標題-->
         </a>
         <div id="ms">
@@ -51,6 +58,7 @@
                     <a style="color:#000; font-size:13px; text-decoration:none;" href="?do=total">
                         <div class="mainmu">
                             進站總人數管理 </div>
+                            
                     </a>
                     <a style="color:#000; font-size:13px; text-decoration:none;" href="?do=bottom">
                         <div class="mainmu">
@@ -72,8 +80,11 @@
 
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-                    <span class="t">進站總人數 :
-                        1 </span>
+                <span class="t">進站總人數 :<?php
+                        $total=new DB("total");
+                        $tt=$total->find(1);
+                        echo $tt['total'];
+                    ?></span>
                 </div>
             </div>
             <div class="di"
@@ -90,15 +101,17 @@
                         </tr>
                     </tbody>
                 </table>
-				<?php 
-				$do=(!empty($_GET['do']))?$_GET['do']:'title';
-				$file='front/'.$do.".php";
-				// 判斷檔案是否存在
-				if(file_exists($file)){
-					include $file;
-				}else{
-					include 'backend/title.php';
-				}
+                <?php 
+                
+                        $do=(!empty($_GET['do']))?$_GET['do']:'title';
+				        $file='backend/'.$do.".php";
+				        // 判斷檔案是否存在
+				        if(file_exists($file)){
+                            include $file;
+                        }else{
+                            include 'backend/title.php';
+                        }
+                        
 				?>
             </div>
             <div id="alt"
@@ -123,7 +136,12 @@
         <div style="clear:both;"></div>
         <div
             style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-            <span class="t" style="line-height:123px;"></span>
+            <span class="t" style="line-height:123px;">
+            <?php 
+                $bottom=new DB('bottom');
+                $bt=$bottom->find(1);
+                echo $bt['bottom'];
+            ?></span>
         </div>
     </div>
 

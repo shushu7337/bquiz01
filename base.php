@@ -17,13 +17,20 @@ class DB{
     public function __construct($table){
         // 把db內的table設定成外部顯示的名稱，拿到名稱後可以使用
         // 如果用全域變數設立的話就變成只能include_once
+
+        //將傳入的資料表名稱指定給類別內的資料表變數table
         $this->table=$table;
+        //建立pdo的連線資訊，並將pdo連線指定給類別內的變數pdo
         $this->pdo=new PDO($this->dsn,$this->root,$this->password);        
     }
 
 // --取得全部資料--
 
     // 這裡就不用像之前base檔需要再打$table 名稱
+
+        //判斷第一個參數是否存在同時是否為陣列
+        //我們自行規範第一個參數必須為陣列才進行處理
+        //如果第一個參數不是陣列,則跳過不處理
     public function all(...$arg){
         // 如果all()沒帶任何參數就撈出全部資料
         $sql="select * from $this->table ";

@@ -11,7 +11,7 @@
                 </tr>
                 <?php
                 
-                    $table='ad';
+                    $table=$do;
                     $db=new DB($table);
                     // 撈出所有資料
                     $rows=$db->all();

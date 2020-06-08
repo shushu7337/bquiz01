@@ -102,13 +102,15 @@
                     </tbody>
                 </table>
                 <?php 
-                
+
                         $do=(!empty($_GET['do']))?$_GET['do']:'title';
-				        $file='backend/'.$do.".php";
+                        $file='backend/'.$do.".php";
+                        //echo $file;
 				        // 判斷檔案是否存在
 				        if(file_exists($file)){
                             include $file;
                         }else{
+
                             include 'backend/title.php';
                         }
                         

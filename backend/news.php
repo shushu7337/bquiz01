@@ -10,7 +10,7 @@
                     <td width="10%">刪除</td>
                 </tr>
                 <?php
-                    $table='news';
+                    $table=$do;
                     $db=new DB($table);
                     $rows=$db->all();
                     foreach($rows as $row){

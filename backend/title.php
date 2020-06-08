@@ -12,7 +12,7 @@
                     <td></td>
                 </tr>
                 <?php
-                    $table="title";
+                    $table=$do;
                     $db=new DB($table);
                     // 撈出所有資料
                     $rows=$db->all();
@@ -32,7 +32,7 @@
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>">刪除
 
                     </td>
-                    <td><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/upload_title.php?id=<?=$row['id'];?>&table=<?=$tablel?>&#39;)" value="更新圖片"></td>
+                    <td><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/upload_title.php?id=<?=$row['id'];?>&table=<?=$table;?>&#39;)" value="更新圖片"></td>
 
                     <!-- 藏值 -->
                     <input type="hidden" name="table" value="title">

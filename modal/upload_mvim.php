@@ -2,7 +2,7 @@
 
 <h3 class="cent">動畫圖片</h3>
 <hr>
-<form action="api/upload_mvim.php" method="post" enctype="multipart/form-data">
+<form action="api/upload.php" method="post" enctype="multipart/form-data">
 <table style="width:70%;margin:auto">
     <tr>
         <td style="text-align:right">動畫圖片：</td>
@@ -11,6 +11,7 @@
 </table>
 <div style="width:100px;margin:auto">
     <input type="hidden" name="id" value="<?=$_GET['id'];?>">
+    <input type="hidden" name="table" value="mvim">
     <input type="submit" value="新增">
     <input type="reset" value="重置">
 </div>

@@ -39,6 +39,7 @@
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
+                <!-- 這裡是用GET來傳值 -->
                     <td width="200px"><input type="button"
                             onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/image.php&#39;)" value="新增校園映像圖片">
                     </td>

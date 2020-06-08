@@ -24,6 +24,7 @@ function op(x,y,url)
 	if(y)
 	$(y).fadeIn()
 	if(y&&url)
+	// 用GET傳資料的
 	$(y).load(url)
 }
 function cl(x)

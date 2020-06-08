@@ -12,11 +12,12 @@
                     <td></td>
                 </tr>
                 <?php
-                    $title=new DB('title');
+                    $table="title";
+                    $db=new DB($table);
                     // 撈出所有資料
-                    $all=$title->all();
+                    $rows=$db->all();
                     // 用迴圈撈各筆
-                    foreach($all as $row){
+                    foreach($rows as $row){
                         // 如果sh==1就會顯示checked
                         $isChk=($row['sh']==1)?'checked':'';
                 ?>
@@ -31,7 +32,7 @@
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>">刪除
 
                     </td>
-                    <td><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/upload_title.php?id=<?=$row['id'];?>&#39;)" value="更新圖片"></td>
+                    <td><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/upload_title.php?id=<?=$row['id'];?>&table=<?=$tablel?>&#39;)" value="更新圖片"></td>
 
                     <!-- 藏值 -->
                     <input type="hidden" name="table" value="title">
@@ -46,7 +47,7 @@
             <tbody>
                 <tr>
                     <td width="200px"><input type="button"
-                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/title.php&#39;)" value="新增網站標題圖片">
+                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/title.php?table=<?=$table;?>&#39;)" value="新增網站標題圖片">
                     </td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                     </td>

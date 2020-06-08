@@ -10,12 +10,10 @@
                     <td width="10%">刪除</td>
                 </tr>
                 <?php
-                    $news=new DB('news');
-                    // 撈出所有資料
-                    $all=$news->all();
-                    // 用迴圈撈各筆
-                    foreach($all as $row){
-                        // 如果sh==1就會顯示checked
+                    $table='news';
+                    $db=new DB($table);
+                    $rows=$db->all();
+                    foreach($rows as $row){
                         $isChk=($row['sh']==1)?'checked':'';
                 ?>
                 <tr style="text-align: center;">
@@ -28,7 +26,7 @@
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>">刪除
                     </td>
                     <!-- 藏值 -->
-                    <input type="hidden" name="table" value="news">
+                    <input type="hidden" name="table" value="<?=$table;?>">
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 </tr>
                 <?php
@@ -40,7 +38,7 @@
             <tbody>
                 <tr>
                     <td width="200px"><input type="button"
-                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/news.php&#39;)" value="新增最新消息資料">
+                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/news.php?table=<?=$table;?>&#39;)" value="新增最新消息資料">
                     </td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                     </td>

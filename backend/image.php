@@ -11,9 +11,10 @@
                     <td></td>
                 </tr>
                 <?php
-                    $image=new DB('image');
-                    $all=$image->all();
-                    foreach($all as $row){
+                    $table='image';
+                    $db=new DB($table);
+                    $rows=$db->all();
+                    foreach($rows as $row){
                         $isChk=($row['sh']==1)?'checked':'';
                 ?>
                 <tr>
@@ -25,10 +26,10 @@
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>">刪除
 
                     </td>
-                    <td><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/upload_image.php?id=<?=$row['id'];?>&#39;)" value="更換圖片"></td>
+                    <td><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/upload_image.php?id=<?=$row['id'];?>&table=<?=$table;?>&#39;)" value="更換圖片"></td>
 
                     <!-- 藏值 -->
-                    <input type="hidden" name="table" value="image">
+                    <input type="hidden" name="table" value='<?=$table;?>'>
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 </tr>
                 <?php
@@ -41,7 +42,7 @@
                 <tr>
                 <!-- 這裡是用GET來傳值 -->
                     <td width="200px"><input type="button"
-                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/image.php&#39;)" value="新增校園映像圖片">
+                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/image.php?table=<?=$table;?>&#39;)" value="新增校園映像圖片">
                     </td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                     </td>

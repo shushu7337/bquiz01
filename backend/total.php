@@ -1,6 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
                     <p class="t cent botli">進站總人數管理</p>
-                    <form method="post"  action="api/edit_total.php">
+                    <form method="post"  action="api/edit_info.php">
                         <table width="100%">
                             <tbody>
                                 <tr class="yel">
@@ -17,6 +17,8 @@
                             <tbody>
                                 <tr>
                                     <td width="200px"></td>
+                                    <!-- 藏值 -->
+                                    <input type="hidden" name="table" value="total">
                                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                                     </td>
                                 </tr>

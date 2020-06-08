@@ -1,6 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
                     <p class="t cent botli">頁尾版權資料管理</p>
-                    <form method="post"  action="api/edit_bottom.php">
+                    <form method="post"  action="api/edit_info.php">
                         <table width="100%">
                             <tbody>
                                 <tr class="yel">
@@ -17,6 +17,8 @@
                             <tbody>
                                 <tr>
                                     <td width="200px"></td>
+                                    <!-- 藏值 -->
+                                    <input type="hidden" name="table" value="bottom">
                                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                                     </td>
                                 </tr>

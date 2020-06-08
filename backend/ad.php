@@ -32,8 +32,8 @@
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 </tr>
                 <?php
-                               }
-                               ?>
+                    }
+                ?>
             </tbody>
         </table>
         <table style="margin-top:40px; width:70%;">

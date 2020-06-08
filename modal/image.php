@@ -2,7 +2,7 @@
 
 <h3 class="cent">新增校園映像圖片</h3>
 <hr>
-<form action="api/insert_image.php" method="post" enctype="multipart/form-data">
+<form action="api/add.php" method="post" enctype="multipart/form-data">
 <table style="width:70%;margin:auto">
     <tr>
         <td style="text-align:right">校園映像圖片：</td>
@@ -10,6 +10,7 @@
     </tr>
 </table>
 <div style="width:100px;margin:auto">
+    <input type="hidden" name="table" value="image">
     <input type="submit" value="新增">
     <input type="reset" value="重置">
 </div>

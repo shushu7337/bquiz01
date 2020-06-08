@@ -1,7 +1,7 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">最新消息資料管理</p>
     <!-- 因為這裡被include到 admin.php 所以是從admin.php的位置去找尋 -->
-    <form method="post" action="api/edit_news.php">
+    <form method="post" action="api/edit.php">
         <table width="100%">
             <tbody>
                 <tr class="yel">
@@ -28,6 +28,7 @@
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>">刪除
                     </td>
                     <!-- 藏值 -->
+                    <input type="hidden" name="table" value="news">
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 </tr>
                 <?php

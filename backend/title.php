@@ -1,7 +1,7 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">網站標題管理</p>
     <!-- 因為這裡被include到 admin.php 所以是從admin.php的位置去找尋 -->
-    <form method="post" action="api/edit_title.php">
+    <form method="post" action="api/edit.php">
         <table width="100%">
             <tbody>
                 <tr class="yel">
@@ -34,6 +34,7 @@
                     <td><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/upload_title.php?id=<?=$row['id'];?>&#39;)" value="更新圖片"></td>
 
                     <!-- 藏值 -->
+                    <input type="hidden" name="table" value="title">
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 </tr>
                 <?php

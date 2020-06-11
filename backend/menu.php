@@ -16,17 +16,19 @@
                 
                     $table=$do;
                     $db=new DB($table);
-                    $rows=$db->all();
+                    // 給予只選擇主選單條件
+                    $rows=$db->all(['parent'=>0]);
                     foreach($rows as $row){
                         $isCheck=($row['sh']==1?"checked":"");
                 ?>
                 <tr style="text-align: center;">
                     <td><input type="text" style="width:90%" name="name[]" value="<?=$row['name'];?>"></td>  
                     <td><input type="text" style="width:90%" name="href[]" value="<?=$row['href'];?>"></td>
-                    <td></td> 
+                    <!-- 從db計算出parent欄位有幾個id -->
+                    <td><?=$db->count(['parent'=>$row['id']]);?></td> 
                     <td> <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"<?=$isCheck;?>></td>
                     <td> <input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
-                    <td><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/submenu.php?id=<?=$row['id'];?>&table=<?=$table;?>&#39;)" value="編輯次選單"></td>
+                    <td><input type="button" value="編輯次選單" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/submenu.php?id=<?=$row['id'];?>&table=<?=$table;?>&#39;)" value="編輯次選單"></td>
                     <!-- 藏值 -->
                     <input type="hidden" name="table" value="<?=$table;?>">
                     <input type="hidden" name="id[]" value="<?=$row['id'];?>">

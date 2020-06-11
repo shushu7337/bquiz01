@@ -11,13 +11,30 @@ if(!empty($_FILES['img']['tmp_name'])){
     // 如果檔案上傳成功的話,就放到data陣列裡面
     $data['img']=$filename;
 }
-// 改存入data陣列的['text']欄位
-$data['text']=$_POST['text'];
-if($table=='title'){
-    $data['sh']=0;
-}else{
+
+// 改成switch做判斷因應admin沒有相對應欄位
+switch($table){
+
+    case "title":
+        $data['text']=$_POST['text'];
+        $data['sh']=0;
+    break;
+
+    case "admin":
+        $data["acc"]=$_POST['acc'];
+        $data["pw"]=$_POST['pw'];
+    break;
+    case "menu":
+    break;
+
+    default:
+    $data['text']=$_POST['text'];
     $data['sh']=1;
+
 }
+
+
+
 // 直接做儲存$data
 $db->save($data);
 // 從哪個table來回到哪個table

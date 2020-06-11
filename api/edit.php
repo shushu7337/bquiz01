@@ -23,6 +23,9 @@ foreach($_POST['id'] as $key=>$id){
             break;
             
             case "menu":
+                $row['name']=$_POST['name'][$key];
+                $row['href']=$_POST['href'][$key];
+                $row['sh']=(!empty($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
             break;
             
             default:

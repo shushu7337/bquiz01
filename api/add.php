@@ -25,6 +25,8 @@ switch($table){
         $data["pw"]=$_POST['pw'];
     break;
     case "menu":
+        $data["name"]=$_POST['name'];
+        $data["href"]=$_POST['href'];
     break;
 
     default:

@@ -15,7 +15,7 @@
                     $db=new DB($table);
                     $rows=$db->all();
                     foreach($rows as $row){
-                        $isChk=($row['sh']==1)?'checked':'';
+                        
                 ?>
                 <tr style="text-align: center;">
                     <td><input type="text" style="width:90%" name="acc[]" value="<?=$row['acc'];?>"></td>  

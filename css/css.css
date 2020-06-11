@@ -75,6 +75,9 @@ body
 	line-height:30px;
 	padding:2px 10px 2px 10px;
 	margin:7px 1px 7px 1px;
+	height:30px;
+	text-align: center;
+	
 }
 .mainmu:hover
 {
@@ -90,6 +93,7 @@ body
 	line-height:30px;
 	padding:2px 10px 2px 10px;
 	margin:7px 1px 7px 1px;
+	text-align: center;
 }
 .mainmu2:hover
 {
@@ -158,4 +162,23 @@ input:focus,button:focus
 	color:#0CF;
 	cursor:pointer;
 	text-decoration:none;
+}
+.mw{
+
+	/* 這裡多做一個div的框來包mainmu2的連結按鈕 */
+	width: 150px;
+	position: relative;
+	left: 140px;
+	z-index: 99;
+	/* 先預設關閉 */
+	display: none;
+	top: -10px;
+}
+
+/* 這裡可有可無 */
+/* 給予a 標籤為block屬性讓整個a都布滿div */
+.mainmu a, .mw a{
+	text-decoration: none;
+	display: block;
+	height: 30px;
 }

@@ -63,8 +63,10 @@
                     ?>
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-                    <span class="t">進站總人數 :
-                        1 </span>
+                    <span class="t">進站總人數 :<?php
+                        $total=new DB("total");
+                        $tt=$total->find(1);
+                        echo $tt['total'];?></span>
                 </div>
 			</div>
             <?php 
@@ -101,7 +103,7 @@
                     onclick="lo(&#39;?do=admin&#39;)">管理登入</button>
                 <div style="width:89%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
-                    <div style="text-align:center;margin:5px" onclick=pp(1)><img src="icon/up.jpg" alt=""></div>
+                    <div style="text-align:center;margin:5px" onclick="pp(1)"><img src="icon/up.jpg" alt=""></div>
                     <?php
                         $image=new DB("image");
 
@@ -111,11 +113,8 @@
                             echo "<img src='img/".$im['img']."' style='width:150px;height:103px;border:3px solid orange'>";
                             echo "</div>";
                         }
-
-
-
                     ?>
-                    <div style="text-align:center;margin:5px" onclick=pp(2)><img src="icon/dn.jpg" alt=""></div>
+                    <div style="text-align:center;margin:5px" onclick="pp(2)"><img src="icon/dn.jpg" alt=""></div>
                     <script>
                     var nowpage = 0,//現在的頁數
                         num = <?=$image->count(['sh'=>1]);?>;    //圖片的數量

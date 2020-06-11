@@ -28,7 +28,7 @@
             // 撈出被顯示的資料
             $ti=$title->find(['sh'=>1]); 
         ?> 
-        <a title="<?=$ti['text'];?>" href="?">
+        <a title="<?=$ti['text'];?>" href="index.php">
             <!-- 修改檔案位置， -->
             <div class="ti" style="background:url(&#39;img/<?=$ti['img'];?>&#39;); background-size:cover;"></div>
             <!--標題-->

@@ -158,6 +158,7 @@ function to($url){
     header("location:".$url);
 }
 
+
 // 判斷使用者是否到訪過
 if(empty($_SESSION['visited'])){
     $total=new DB('total');

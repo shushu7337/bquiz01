@@ -24,6 +24,7 @@ switch($table){
         $data["acc"]=$_POST['acc'];
         $data["pw"]=$_POST['pw'];
     break;
+    
     case "menu":
         $data["name"]=$_POST['name'];
         $data["href"]=$_POST['href'];
@@ -32,13 +33,11 @@ switch($table){
     default:
     $data['text']=$_POST['text'];
     $data['sh']=1;
-
 }
-
-
 
 // 直接做儲存$data
 $db->save($data);
+
 // 從哪個table來回到哪個table
 to("../admin.php?do=$table");
 

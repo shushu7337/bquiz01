@@ -5,8 +5,8 @@
                             <tbody>
                                 <tr class="yel">
                                     <td width="50%" style="text-align:right">進站總人數：</td>
-                                    <?php $total=new DB('total');
-                                          $tt=$total->find(1);?>
+                                    <?php 
+                                          $tt=$Total->find(1);?>
 
                                     <td width="50%" style="text-align:left"><input type="text" name="total" value="<?=$tt['total'];?>"></td>
                                 </tr>

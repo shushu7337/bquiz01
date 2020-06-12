@@ -3,10 +3,9 @@
 <?php
 // 拿到acc & pw
 if(!empty($_POST['acc']) && !empty($_POST['pw'])){
-    $admin=new DB("admin");
     $acc=$_POST['acc'];
     $pw=$_POST['pw'];
-    $chk=$admin->count(['acc'=>$acc,'pw'=>$pw]);
+    $chk=$Admin->count(['acc'=>$acc,'pw'=>$pw]);
     if($chk>0){
         to("admin.php");
         $_SESSION['login']=$acc;

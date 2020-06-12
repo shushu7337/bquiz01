@@ -7,7 +7,7 @@ class DB{
     private $root="root";
     private $password="";
     // 資料庫名稱
-    private $table;
+    protected $table;
     // 先做預設
     private $pdo;
 
@@ -151,19 +151,86 @@ function q($sql){
     return $this->pdo->query($sql)->fetchAll();
 }
 
+function list($array){
+    // 先把header的內容畫出來產生第一列
+    echo "<table class='cent' width='".$array['width']."'>";
+    echo "<tr class='yel'>";
+    foreach($array['header'] as $header){
+        echo "<td style='width:" .$header[1]."'>".$header[0]."</td>";
+    }
+    echo "</tr>";
+    foreach($array['rows'] as $row){
+        echo "<tr>";
+        foreach($row as $col){
+            echo "<td>$col</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
 }
+public function getTable(){
+    return $this->table;
+    }
+}
+
+class Title extends DB{
+    public function __construct(){
+        parent::__construct('title');
+    }
+    public function table(){
+        $rows=$this->all();
+        $array=[
+            'width'=>'100%',
+            'header'=>[
+                ['網站標題','45%'],
+                ['替代文字','23%'],
+                ['顯示','7%'],
+                ['刪除','7%'],
+                ['操作',''],
+            ],
+        ];
+        foreach($rows as $row){
+            $isChk=($row['sh']==1)?'checked':'';
+                  $array['rows'][]=[
+                    "<img src='img/".$row['img']."' style='width:300px;height:30px'>",
+                    "<input type='text' name='text[]' value='".$row['text']."'>",
+                    "<input type='radio' name='sh' value='".$row['id']."' $isChk>",
+                    "<input type='checkbox' name='del[]' value='".$row['id']."'>",
+                    "<input type='hidden' name='id[]' value='".$row['id']."'><input type='button' value='更新圖片' onclick='op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/upload_".$this->table.".php?id=".$row['id']."&table=".$this->table."&#39;)'>",
+                ];
+            }
+       return $this ->list($array);
+        }
+    }
+
+// new一個資料表出來
+//TITEL=new Title;
+// 測試刪除
+// print_r($TITLE->del(15))
+
 
 // --頁面導向--
 function to($url){
     header("location:".$url);
 }
 
+// 
+$Title=new DB('title');
+$Ad=new DB('ad');
+$Mvim=new DB('mvim');
+$Bottom=new DB('bottom');
+$Image=new DB('image');
+$News=new DB('news');
+$Admin=new DB('admin');
+$Menu=new DB('menu');
+$Total=new DB('total');
+
 // 判斷使用者是否到訪過
 if(empty($_SESSION['visited'])){
     $total=new DB('total');
-    $tt=$total->find(1);
+    $tt=$Total->find(1);
     $tt['total']++;
-    $total->save($tt);
+    $Total->save($tt);
     $_SESSION['visited']=$tt['total'];
 }
 ?>

@@ -38,6 +38,27 @@
                     }
                 ?>
             </tbody>
+            <?php
+                $array=[
+                    'width'=>'100%',
+                    'header'=>[
+                            ['網站標題','45%'],
+                            ['替代文字','23%'],
+                            ['顯示','7%'],
+                            ['刪除','7%'],
+                            ['操作',''],
+                    ],
+                    'rows'=>[
+                        ["<img src='img/01B01.jpg' style='width:300px;height:30px;'","<input type='text' name='text' value='AAAAAA'>","<input type='radio' name='sh' value='1'>",'checkbox','button'],
+                        ["<img src='img/01B02.jpg'","<input type='text' name='text' value='AAAAAA'>","<input type='radio' name='sh' value='1'>",'checkbox','button'],
+                        ["<img src='img/01B03.jpg'","<input type='text' name='text' value='AAAAAA'>","<input type='radio' name='sh' value='1'>",'checkbox','button'],
+                        ["<img src='img/01B04.jpg'","<input type='text' name='text' value='AAAAAA'>","<input type='radio' name='sh' value='1'>",'checkbox','button'],
+                    ],
+                
+                ];
+
+                $db->list($array);
+            ?>
         </table>
         <table style="margin-top:40px; width:70%;">
             <tbody>

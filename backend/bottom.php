@@ -5,8 +5,8 @@
                             <tbody>
                                 <tr class="yel">
                                     <td width="50%" style="text-align:right">頁尾版權資料：</td>
-                                    <?php $bottom=new DB('bottom');
-                                          $bt=$bottom->find(1);?>
+                                    <?php 
+                                          $bt=$Bottom->find(1);?>
 
                                     <td width="50%" style="text-align:left"><input type="text" name="bottom" value="<?=$bt['bottom'];?>"></td>
                                 </tr>

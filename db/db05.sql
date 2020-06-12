@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-06-11 10:39:19
+-- 產生時間： 2020-06-12 10:19:04
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.3
 
@@ -227,7 +227,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 89);
+(1, 91);
 
 --
 -- 已傾印資料表的索引

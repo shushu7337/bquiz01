@@ -23,8 +23,8 @@
     </div>
     <iframe style="display:none;" name="back" id="back"></iframe>
     <div id="main">
-    <?php $title=new DB('title') ;
-            $ti=$title->find(['sh'=>1]);
+    <?php 
+            $ti=$Title->find(['sh'=>1]);
     ?>
         <a title="<?=$ti['text'];?>" href="index.php">
             <div class="ti" style="background:url(&#39;img/<?=$ti['img'];?>&#39;); background-size:cover;"></div>
@@ -37,8 +37,7 @@
                     <span class="t botli">主選單區</span>
                     <?php
                     // 呼叫主選單
-                    $menu=new DB("menu");
-                    $mains=$menu->all(['parent'=>0,'sh'=>1]);
+                    $mains=$Menu->all(['parent'=>0,'sh'=>1]);
                     foreach ($mains as $main){
                         echo "<div class='mainmu'>";
                         echo "<a href='".$main['href']."'>";
@@ -47,10 +46,10 @@
 
                         // 先判斷有沒有次選單
                         // select count(*) from `menu` where parent=?
-                        $chksub=$menu->count(['parent'=>$main['id']]);
+                        $chksub=$Menu->count(['parent'=>$main['id']]);
                         if($chksub>0){
                             // 用迴圈拿回所有次選單
-                            $subs=$menu->all(['parent'=>$main['id']]);
+                            $subs=$Menu->all(['parent'=>$main['id']]);
                             // 使用foreach印出
                             echo "<div class='mw'>";
                             foreach($subs as $sub){
@@ -64,8 +63,7 @@
                 </div>
                 <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     <span class="t">進站總人數 :<?php
-                        $total=new DB("total");
-                        $tt=$total->find(1);
+                        $tt=$Total->find(1);
                         echo $tt['total'];?></span>
                 </div>
 			</div>
@@ -100,9 +98,8 @@
                     <span class="t botli">校園映象區</span>
                     <div style="text-align:center;margin:5px" onclick="pp(1)"><img src="icon/up.jpg" alt=""></div>
                     <?php
-                        $image=new DB("image");
 
-                        $ims=$image->all(['sh'=>1]);
+                        $ims=$Image->all(['sh'=>1]);
                         foreach($ims as $key=>$im){
                             echo "<div style='text-align:center;margin:3px' id='ssaa$key' class='im'>";
                             echo "<img src='img/".$im['img']."' style='width:150px;height:103px;border:3px solid orange'>";
@@ -112,7 +109,7 @@
                     <div style="text-align:center;margin:5px" onclick="pp(2)"><img src="icon/dn.jpg" alt=""></div>
                     <script>
                     var nowpage = 0,//現在的頁數
-                        num = <?=$image->count(['sh'=>1]);?>;    //圖片的數量
+                        num = <?=$Image->count(['sh'=>1]);?>;    //圖片的數量
 
                     function pp(x) {//
                         var s, t;
@@ -141,7 +138,7 @@
             <span class="t" style="line-height:123px;">
             <?php 
                 $bottom=new DB('bottom');
-                $bt=$bottom->find(1);
+                $bt=$Bottom->find(1);
                 echo $bt['bottom'];
             ?>
         </span>

@@ -1,4 +1,16 @@
-﻿<?php include_once "base.php";?>
+﻿<?php include_once "base.php";
+
+// 新增一個對session的判斷
+if(empty($_SESSION['login'])){
+?>
+    <script>
+    alert('無效登入，請重新登入');
+    location.href='index.php?do=login';
+    </script>
+<?php
+}
+?>
+
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0068)?do=admin&redo=title -->
@@ -30,7 +42,7 @@
         ?> 
         <a title="<?=$ti['text'];?>" href="index.php">
             <!-- 修改檔案位置， -->
-            <div class="ti" style="background:url(&#39;img/<?=$ti['img'];?>&#39;); background-size:cover;"></div>
+            <div class="ti" style="background:url(&#39;img/<?= $ti['img'];?>&#39;); background-size:cover;"></div>
             <!--標題-->
         </a>
         <div id="ms">
@@ -96,7 +108,7 @@
                             <td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;"
                                 class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a>
                             </td>
-                            <td><button onclick="document.cookie=&#39;user=&#39;;location.replace(&#39;?&#39;)"
+                            <td><button onclick="location.replace(&#39;api/logout.php&#39;)"    
                                     style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
                         </tr>
                     </tbody>

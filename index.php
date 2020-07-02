@@ -8,9 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>卓越科技大學校園資訊系統</title>
-    <link href="./css/css.css" rel="stylesheet" type="text/css">
-    <script src="./js/jquery-3.4.1.min.js"></script>
-    <script src="./js/js.js"></script>
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/js.js"></script>
 </head>
 
 <body>
@@ -69,16 +69,16 @@
                         echo $tt['total'];?></span>
                 </div>
 			</div>
-            <?php 
-				$do=(!empty($_GET['do']))?$_GET['do']:'main';
-				$file='front/'.$do.".php";
-				// 判斷檔案是否存在
-				if(file_exists($file)){
-					include $file;
-				}else{
-					include 'front/main.php';
-				}
-				?>
+                <?php 
+                    $do=(!empty($_GET['do']))?$_GET['do']:'main';
+                    $file='front/'.$do.".php";
+                    // 判斷檔案是否存在
+                    if(file_exists($file)){
+                        include $file;
+                    }else{
+                        include 'front/main.php';
+                    }
+                    ?>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
                 <!--右邊-->
                 <?php
@@ -131,6 +131,10 @@
                         }
                     }
                     pp(1)
+                    function lo(x)
+{
+	location.replace(x)
+}
                     </script>
                 </div>
             </div>

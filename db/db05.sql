@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-06-11 10:39:19
+-- 產生時間： 2020-07-17 10:35:09
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.3
 
@@ -43,7 +43,7 @@ INSERT INTO `ad` (`id`, `img`, `text`, `sh`) VALUES
 (1, '', '轉知臺北教育大學與臺灣師大合辦第11屆麋研齋全國硬筆書法比賽活動', 1),
 (5, '', ' 轉知:教育是人類升沉的樞紐-2013教師生命成長營', 0),
 (8, '', '欣榮圖書館101年悅讀達人徵文比賽，歡迎全校師生踴躍投稿參加', 1),
-(10, '', 'ffffffffffsadgfasgasfd', 1);
+(10, '', 'ffffffffffsadgfasgasfd', 0);
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,8 @@ INSERT INTO `admin` (`id`, `acc`, `pw`) VALUES
 (1, 'admin', 'ad'),
 (5, 'ccc', '555'),
 (6, 'shu', '132'),
-(7, '123', '132');
+(7, '123', '132'),
+(8, 'ddd', 'df');
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,8 @@ INSERT INTO `menu` (`id`, `name`, `href`, `parent`, `sh`) VALUES
 (9, 'DDD', 'fff', 8, 1),
 (10, '回首頁', 'ㄑ', 1, 1),
 (11, '這是次選單', 'dsf', 1, 1),
-(12, '這是次網頁', 'asfd', 1, 1);
+(12, '這是次網頁', 'asfd', 1, 1),
+(13, '點我看更多', 'www.google.tw', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 89);
+(1, 95);
 
 --
 -- 已傾印資料表的索引
@@ -301,7 +303,7 @@ ALTER TABLE `ad`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `bottom`
@@ -319,7 +321,7 @@ ALTER TABLE `image`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mvim`
@@ -337,7 +339,7 @@ ALTER TABLE `news`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `title`
 --
 ALTER TABLE `title`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `total`

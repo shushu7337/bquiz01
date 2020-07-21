@@ -1,8 +1,9 @@
 <div class="di"
     style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
-    <marquee scrolldelay="120" direction="left" style="position:absolute; width:100%; height:40px;">
-    </marquee>
+    <?php include "maquree.php";?>
     <div style="height:32px; display:block;"></div>
+<h3 class="float:right;">更多最新消息顯示區</h3>
+<hr>
     <!--正中央-->
     <?php
         $table=$do;
